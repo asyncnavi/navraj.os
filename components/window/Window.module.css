@@ -1,0 +1,65 @@
+.window {
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-win);
+  overflow: hidden;
+  animation: winpop 0.16s ease-out;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-bottom: var(--border);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+.titlebar:active {
+  cursor: grabbing;
+}
+
+.lights {
+  display: flex;
+  gap: 7px;
+}
+
+.light {
+  all: unset;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: var(--border-thin);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.light:hover {
+  filter: brightness(1.08);
+}
+
+.title {
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 13.5px;
+}
+
+.titleExtra {
+  margin-left: auto;
+}
+
+.body {
+  overflow: auto;
+  max-height: 62vh;
+  flex: 1;
+}
+
+/* On mobile the window is fullscreen — let the body use the space */
+@media (max-width: 860px) {
+  .body {
+    max-height: none;
+  }
+}

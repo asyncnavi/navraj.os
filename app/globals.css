@@ -1,0 +1,138 @@
+/* ============================================================
+   folio.os — design tokens + global styles
+   Neo-brutalist cream/beige desktop-OS theme
+   ============================================================ */
+
+:root {
+  /* Palette */
+  --bg: #e7dcc4;
+  --bg-dot: #d3c6a6;
+  --panel: #fbf7ef;
+  --ink: #2b2320;
+  --ink-soft: #5b5148;
+  --muted: #8a7c5e;
+  --accent: #c85a3c;
+  --accent-hover: #9e3f27;
+
+  /* Window / dock surfaces */
+  --terminal-bg: #231e1b;
+  --terminal-fg: #cfe8d6;
+
+  /* Traffic lights */
+  --tl-close: #e5544a;
+  --tl-min: #e5c15b;
+  --tl-max: #4f9e6a;
+
+  /* App accent colors (titlebars + icons) */
+  --c-about: #e88a70;
+  --c-projects: #6fa8dc;
+  --c-blog: #b18ed6;
+  --c-resume: #e5c15b;
+  --c-now: #7cc19a;
+  --c-photos: #e493b3;
+  --c-contact: #6fc4c0;
+
+  /* Structure */
+  --border: 2px solid var(--ink);
+  --border-thin: 1.5px solid var(--ink);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow-win: 9px 9px 0 rgba(43, 35, 32, 0.85);
+  --shadow-card: 4px 4px 0 rgba(43, 35, 32, 0.2);
+  --shadow-btn: 3px 3px 0 rgba(43, 35, 32, 0.35);
+  --shadow-icon: 4px 4px 0 var(--ink);
+
+  --menubar-h: 46px;
+  --font-sans: system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9bda1;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b3a684;
+  background-clip: content-box;
+}
+
+/* Animations */
+@keyframes bootfade {
+  0%,
+  55% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes winpop {
+  0% {
+    transform: scale(0.965);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}

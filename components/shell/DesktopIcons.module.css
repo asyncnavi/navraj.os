@@ -1,0 +1,64 @@
+.icons {
+  position: absolute;
+  top: 66px;
+  left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 20;
+}
+
+.icon {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  width: 88px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.icon:hover {
+  transform: translate(-1px, -2px);
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: var(--border);
+  border-radius: 15px;
+  font-size: 26px;
+  box-shadow: var(--shadow-icon);
+}
+
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  background: var(--panel);
+  border: var(--border-thin);
+  border-radius: 6px;
+  padding: 2px 7px;
+}
+
+/* Mobile: grid of icons filling the desktop */
+@media (max-width: 860px) {
+  .icons {
+    position: fixed;
+    top: var(--menubar-h);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: start;
+    justify-items: center;
+    gap: 22px 8px;
+    padding: 34px 16px;
+    overflow-y: auto;
+  }
+}
