@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import { useDesktop } from "@/lib/store";
-import { useIsMobile } from "@/lib/useIsMobile";
 
 import MenuBar from "./shell/MenuBar";
 import DesktopIcons from "./shell/DesktopIcons";
@@ -23,12 +22,12 @@ import styles from "./Desktop.module.css";
 
 export default function Desktop() {
   const openApp = useDesktop((s) => s.openApp);
-  const isMobile = useIsMobile();
 
-  // Open About by default on desktop, after mount (mobile stays on launcher).
+  // Open About by default on desktop; on mobile the launcher grid stays.
+  // Read the real width at mount — the useIsMobile hook is still false on
+  // first render, so relying on it here would wrongly auto-open on phones.
   useEffect(() => {
-    if (!isMobile) openApp("about");
-    // Only run once on mount; isMobile is false on first render.
+    if (window.innerWidth > 860) openApp("about");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
