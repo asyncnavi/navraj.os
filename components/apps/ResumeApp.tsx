@@ -11,9 +11,7 @@ export default function ResumeApp() {
     <div style={{ padding: "28px 30px 32px" }}>
       <div className={s.resumeHead}>
         <div className={s.resumeName}>{profile.name}</div>
-        <div className={s.resumeSub}>
-          Software Engineer · Backend &amp; Distributed Systems
-        </div>
+        <div className={s.resumeSub}>{profile.role}</div>
       </div>
 
       <div className={s.sectionLabel}>Experience</div>

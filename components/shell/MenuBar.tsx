@@ -14,7 +14,7 @@ export default function MenuBar() {
     <div className={styles.menubar}>
       <button className={styles.brand} onClick={() => openApp("about")}>
         <span className={styles.logo}>◆</span>
-        folio<span className={styles.dim}>.os</span>
+        navraj<span className={styles.dim}>.s</span>
       </button>
 
       <nav className={styles.links}>

@@ -21,7 +21,7 @@ export default function BootScreen() {
   return (
     <div className={styles.boot}>
       <div className={styles.logo}>◆</div>
-      <div className={styles.text}>booting folio.os …</div>
+      <div className={styles.text}>connecting to navraj..</div>
     </div>
   );
 }

@@ -5,6 +5,16 @@ const SLOTS = ["IMG_01", "IMG_02", "IMG_03", "IMG_04", "IMG_05", "IMG_06"];
 export default function PhotosApp() {
   return (
     <div style={{ padding: 22 }}>
+      <div
+        style={{
+          fontFamily: "var(--font-mono), monospace",
+          fontWeight: 700,
+          color: "var(--accent)",
+          marginBottom: 16,
+        }}
+      >
+        This feature is coming soon.
+      </div>
       <div className={s.photoGrid}>
         {SLOTS.map((name) => (
           <div key={name} className={s.photo}>

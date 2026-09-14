@@ -4,7 +4,6 @@ export type AppId =
   | "blog"
   | "resume"
   | "now"
-  | "photos"
   | "contact";
 
 export type WindowMeta = {
@@ -67,15 +66,6 @@ export const WINDOWS: Record<AppId, WindowMeta> = {
     left: 150,
     width: 440,
   },
-  photos: {
-    id: "photos",
-    label: "photos/",
-    glyph: "◫",
-    accentVar: "var(--c-photos)",
-    top: 110,
-    left: 400,
-    width: 680,
-  },
   contact: {
     id: "contact",
     label: "contact.card",
@@ -94,6 +84,5 @@ export const APP_ORDER: AppId[] = [
   "blog",
   "resume",
   "now",
-  "photos",
   "contact",
 ];

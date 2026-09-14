@@ -4,6 +4,16 @@ import s from "./apps.module.css";
 export default function ProjectsApp() {
   return (
     <div style={{ padding: 24 }}>
+      <div
+        style={{
+          fontFamily: "var(--font-mono), monospace",
+          fontWeight: 700,
+          color: "var(--accent)",
+          marginBottom: 16,
+        }}
+      >
+        Adding soon
+      </div>
       <div className={s.projGrid}>
         {projects.map((p) => (
           <div key={p.title} className={s.projCard}>

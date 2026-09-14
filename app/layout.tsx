@@ -17,7 +17,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "folio.os — portfolio",
+  title: "navraj.s — portfolio",
   description:
     "A desktop-OS style portfolio. Software engineer building reliable, scalable systems.",
 };

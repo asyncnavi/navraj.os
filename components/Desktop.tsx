@@ -14,7 +14,6 @@ import ProjectsApp from "./apps/ProjectsApp";
 import BlogApp from "./apps/BlogApp";
 import ResumeApp from "./apps/ResumeApp";
 import NowApp from "./apps/NowApp";
-import PhotosApp from "./apps/PhotosApp";
 import ContactApp from "./apps/ContactApp";
 
 import { resumePdf } from "@/content/portfolio";
@@ -57,9 +56,6 @@ export default function Desktop() {
       </Window>
       <Window id="now">
         <NowApp />
-      </Window>
-      <Window id="photos">
-        <PhotosApp />
       </Window>
       <Window id="contact">
         <ContactApp />
