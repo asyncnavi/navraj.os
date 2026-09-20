@@ -1,11 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
+import { sendContact, type ContactState } from "@/app/contact-actions";
 import { profile } from "@/content/portfolio";
 import s from "./apps.module.css";
 
 export default function ContactApp() {
-  const [sent, setSent] = useState(false);
+  const [state, formAction, pending] = useActionState<ContactState, FormData>(
+    sendContact,
+    { status: "idle", message: "" },
+  );
 
   return (
     <div style={{ padding: "24px 26px 28px" }}>
@@ -41,31 +45,41 @@ export default function ContactApp() {
 
       <form
         className={s.form}
-        onSubmit={(e) => {
-          e.preventDefault();
-          // TODO: wire to Supabase / email service. For now, UI-only.
-          setSent(true);
-        }}
+        action={formAction}
       >
-        <input className={s.input} required placeholder="your name" />
+        <input className={s.input} name="name" aria-label="Your name" autoComplete="name" maxLength={100} defaultValue={state.values?.name} required placeholder="your name" />
+        <input name="website" aria-hidden="true" tabIndex={-1} autoComplete="off" style={{ display: "none" }} />
         <input
           className={s.input}
           required
           type="email"
+          name="email"
+          aria-label="Your email"
+          autoComplete="email"
+          maxLength={254}
+          defaultValue={state.values?.email}
           placeholder="your@email.com"
         />
         <textarea
           className={s.textarea}
           required
           rows={3}
+          name="message"
+          aria-label="Your message"
+          maxLength={5000}
+          defaultValue={state.values?.message}
           placeholder="what's on your mind?"
         />
         <button
           type="submit"
-          className={`${s.send} ${sent ? s.sendDone : ""}`}
+          disabled={pending}
+          className={`${s.send} ${state.status === "success" ? s.sendDone : ""}`}
         >
-          {sent ? "Sent ✓ — talk soon!" : "Send message →"}
+          {pending ? "Sending..." : "Send message →"}
         </button>
+        <p role={state.status === "error" ? "alert" : "status"} aria-live="polite">
+          {state.message}
+        </p>
       </form>
     </div>
   );

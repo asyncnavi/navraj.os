@@ -72,7 +72,7 @@ export default function Window({ id, titleExtra, children }: WindowProps) {
           top: "var(--menubar-h)",
           left: 0,
           right: 0,
-          bottom: 0,
+          bottom: "calc(76px + env(safe-area-inset-bottom, 0px))",
           width: "auto",
           borderRadius: 0,
           borderLeft: "none",

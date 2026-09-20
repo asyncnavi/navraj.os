@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { aboutParagraphs, profile } from "@/content/portfolio";
 import s from "./apps.module.css";
 
@@ -5,11 +6,15 @@ export default function AboutApp() {
   return (
     <div className={s.pad}>
       <div className={s.aboutHead}>
-        <div className={s.avatar}>
-          your
-          <br />
-          photo
-        </div>
+        <Image
+          className={s.avatar}
+          src="/navraj-profile.png"
+          alt="Navraj"
+          width={92}
+          height={92}
+          sizes="92px"
+          style={{ objectFit: "cover", objectPosition: "50% 30%" }}
+        />
         <div>
           <div className={s.name}>{profile.name}</div>
           <div className={s.roleLine}>{profile.role}</div>
