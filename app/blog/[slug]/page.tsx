@@ -1,33 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { posts } from "@/content/portfolio";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { getPost, getPosts } from "@/lib/posts";
 import s from "./page.module.css";
 
-// Only slugs from content/portfolio.ts exist; anything else 404s.
+// Only slugs from content/posts exist; anything else 404s.
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return posts.map((p) => ({ slug: p.slug }));
+  return getPosts().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const post = posts.find((p) => p.slug === slug);
+  const post = getPost(slug);
   if (!post) return {};
+  const { title, summary } = post.meta;
   return {
-    title: `${post.title} · navraj.s`,
-    description: post.summary,
-    openGraph: { title: post.title, description: post.summary, type: "article" },
+    title: `${title} · navraj.s`,
+    description: summary,
+    openGraph: { title, description: summary, type: "article" },
   };
 }
 
 export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
   const { slug } = await params;
-  const post = posts.find((p) => p.slug === slug);
+  const post = getPost(slug);
   if (!post) notFound();
+  const { meta, markdown } = post;
 
   return (
     <main className={s.page}>
@@ -36,15 +40,11 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
           ← back to desktop
         </Link>
         <div className={s.meta}>
-          {post.date} · {post.readTime}
+          {meta.dateLabel} · {meta.readTime}
         </div>
-        <h1 className={s.title}>{post.title}</h1>
+        <h1 className={s.title}>{meta.title}</h1>
         <div className={s.body}>
-          {post.body.map((b, i) => {
-            if (b.type === "h2") return <h2 key={i}>{b.text}</h2>;
-            if (b.type === "quote") return <blockquote key={i}>{b.text}</blockquote>;
-            return <p key={i}>{b.text}</p>;
-          })}
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
         </div>
       </article>
     </main>
