@@ -17,9 +17,10 @@ import NowApp from "./apps/NowApp";
 import ContactApp from "./apps/ContactApp";
 
 import { resumePdf } from "@/content/portfolio";
+import type { PostMeta } from "@/lib/posts";
 import styles from "./Desktop.module.css";
 
-export default function Desktop() {
+export default function Desktop({ posts }: { posts: PostMeta[] }) {
   const openApp = useDesktop((s) => s.openApp);
 
   // Open About by default on desktop; on mobile the launcher grid stays.
@@ -42,7 +43,7 @@ export default function Desktop() {
         <ProjectsApp />
       </Window>
       <Window id="blog">
-        <BlogApp />
+        <BlogApp posts={posts} />
       </Window>
       <Window
         id="resume"
