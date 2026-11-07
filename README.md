@@ -39,6 +39,7 @@ lib/
   useIsMobile.ts      responsive mode hook (<= 860px)
 content/
   portfolio.ts        ALL copy — edit here
+  posts/*.md          blog posts
 ```
 
 ## Fill in the placeholders
@@ -47,7 +48,7 @@ Everything to personalize is in **`content/portfolio.ts`** (search for `// TODO`
 
 - `profile` — your name, email, GitHub, LinkedIn
 - `projects` — titles, descriptions, tags, real GitHub / demo links
-- `posts` — blog posts (currently 4 placeholders)
+- blog posts — one Markdown file per post in `content/posts/*.md`, with frontmatter keys `title`, `date` (YYYY-MM-DD), and `summary`. The filename is the slug.
 - `resumePdf` — drop a real `resume.pdf` in `/public` and point this at `/resume.pdf`
 
 Placeholder visuals to replace later:
@@ -62,13 +63,8 @@ opening an app fills the screen, and the dock + menu links hide. Handled by
 
 ## Deferred (easy to add later)
 
-- **Contact form backend** — currently UI-only ("Sent ✓"). Wire the `onSubmit`
-  in `components/apps/ContactApp.tsx` to a server action → Supabase or an email
-  service (Resend).
-- **Blog/projects from a DB or MDX** — content is static in `content/portfolio.ts`.
-- **SEO / indexable routes** — this is a desktop-only SPA; window content is
-  client-rendered. If discoverability matters, add real `/blog/[slug]` routes
-  with metadata and keep the desktop as the shell.
+- **Projects from a DB** — projects are static in `content/portfolio.ts`.
+  Posts are Markdown files in `content/posts/` and need no DB.
 
 ## Deploy
 
