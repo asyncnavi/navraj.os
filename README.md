@@ -49,7 +49,7 @@ Everything to personalize is in **`content/portfolio.ts`** (search for `// TODO`
 - `profile` — your name, email, GitHub, LinkedIn
 - `projects` — titles, descriptions, tags, real GitHub / demo links
 - blog posts — one Markdown file per post in `content/posts/*.md`, with frontmatter keys `title`, `date` (YYYY-MM-DD), and `summary`. The filename is the slug.
-- `resumePdf` — drop a real `resume.pdf` in `/public` and point this at `/resume.pdf`
+- `resumePdf` — the resume PDF lives at `public/resume.pdf`; replace that file to update it
 
 Placeholder visuals to replace later:
 - About avatar ("your photo" swatch) in `components/apps/AboutApp.tsx`
