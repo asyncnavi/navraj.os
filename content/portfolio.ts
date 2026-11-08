@@ -36,11 +36,11 @@ export const projects: Project[] = [
 ];
 
 export const nowItems: string[] = [
-  "Building wallet and transaction infrastructure @ Marzi",
-  "Shipping production-ready systems for campaigns and operations",
-  "Deepening distributed systems, cloud, and mobile engineering",
-  "Working on startup-native ownership and engineering leadership",
-  "Open to interesting problems and collaborations",
+  "Building a Go/PostgreSQL double-entry wallet ledger",
+  "Reserve, capture and release flows for event bookings",
+  "Hardening Razorpay settlement between Lambdas and the ledger",
+  "Writing about outbox and idempotency on the blog",
+  "Growing a three-person founding team. Open to hard backend problems",
 ];
 
 export type ResumeEntry = {
