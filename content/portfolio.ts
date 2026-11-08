@@ -5,7 +5,7 @@
 
 export const profile = {
   name: "Navraj", // TODO
-  role: "Founding Engineer @ Marzi (by Primus)",
+  role: "Founding Engineer @ Marzi by Primus",
   tagline: "building • systems • shipping",
   email: "asyncnavi@gmail.com",
   github: "https://github.com/asyncnavi", // TODO
