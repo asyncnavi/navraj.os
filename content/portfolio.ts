@@ -13,10 +13,14 @@ export const profile = {
 };
 
 export const aboutParagraphs: string[] = [
-  "I began my engineering journey early and have since built and shipped scalable systems across backend, frontend, and infrastructure in startup environments.",
-  "As a Founding Engineer at Marzi (by Primus), I built the core platform from day one across architecture, backend, frontend, cloud, and deployment, while supporting campaigns and experiences for tens of thousands of users.",
-  "My recent work spans distributed systems, real-time workflows, product-focused execution, and cloud-native engineering, with hands-on experience in Node.js, Elixir, Golang, Python, and modern web stacks.",
-  "I also built and learned through multiple product cycles in startups, focused on practical delivery, team growth, and durable engineering decisions under pressure.",
+  "Just a human building software. Occasionally breaking it. Mostly fixing it.",
+  "Currently a Founding Engineer at Marzi by Primus, where I spend my days building things that involve money, databases, and a healthy amount of paranoia about what could go wrong.",
+  "I've worked across health-tech, e-commerce, and startups. Even tried building my own SaaS once. It failed. Spectacularly educational experience, though.",
+  "These days, I work mostly with Go, TypeScript, PostgreSQL, and AWS. Payments, wallets, ledgers, rewards, the kind of stuff where \"it works on my machine\" isn't particularly reassuring.",
+  "I like problems that don't have obvious answers. The weird edge cases, the 2 AM production mysteries, and those moments when a simple feature turns into a distributed systems lesson.",
+  "I believe good engineering isn't about writing clever code. It's about building things that make sense, survive reality, and don't make the next engineer question their career choices.",
+  "Still learning. Still building. Still occasionally wondering why something worked on the first try.",
+  "That's about it.",
 ];
 
 export type Project = {
