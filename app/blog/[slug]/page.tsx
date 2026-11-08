@@ -29,7 +29,10 @@ export async function generateMetadata({
       description: summary,
       type: "article",
       url: `/blog/${slug}`,
+      siteName: "navraj.s",
+      images: ["/navraj-profile.png"],
     },
+    twitter: { card: "summary", title, description: summary, images: ["/navraj-profile.png"] },
   };
 }
 
