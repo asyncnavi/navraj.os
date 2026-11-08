@@ -21,9 +21,15 @@ export async function generateMetadata({
   if (!post) return {};
   const { title, summary } = post.meta;
   return {
-    title: `${title} · navraj.s`,
+    title,
     description: summary,
-    openGraph: { title, description: summary, type: "article" },
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title,
+      description: summary,
+      type: "article",
+      url: `/blog/${slug}`,
+    },
   };
 }
 

@@ -131,3 +131,29 @@ export const education = {
 };
 
 export const resumePdf = "/resume.pdf";
+
+export const site = {
+  url: "https://www.navraj.site",
+  title: "Navraj · Backend Engineer (Go, TypeScript, AWS)",
+  description:
+    "Founding engineer building production backends for event bookings, payments and wallets, with experience in PostgreSQL transaction design, AWS serverless services and large-scale campaign delivery.",
+  keywords: [
+    "Navraj",
+    "Navraj Sandhu",
+    "backend engineer",
+    "founding engineer",
+    "software engineer",
+    "Go",
+    "Golang",
+    "TypeScript",
+    "PostgreSQL",
+    "AWS",
+    "Lambda",
+    "DynamoDB",
+    "wallets",
+    "ledgers",
+    "payments",
+    "event bookings",
+    "Bengaluru",
+  ],
+};
