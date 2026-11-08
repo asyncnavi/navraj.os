@@ -47,72 +47,82 @@ export type ResumeEntry = {
   dot: string; // css color var
   title: string;
   meta: string;
-  body: string;
+  bullets: string[];
 };
 
 export const experience: ResumeEntry[] = [
   {
     dot: "var(--accent)",
-    title: "Founding Engineer — Marzi (by Primus)",
-    meta: "Bangalore, India · 02/2026 - Present",
-    body: "Built and scaled the core platform from the ground up, owning end-to-end engineering across backend, frontend, cloud infrastructure, and deployments. Designed serverless services on AWS Lambda and DynamoDB saving ₹30K+ in costs, built a 4M+ signed coupon distribution system, and rewrote legacy Python services to Node.js. Led major partner campaigns with Google Pay, PharmEasy, Pronto, and Tata 1mg (50K+ users), and built a Next.js admin platform with real-time WebSocket workflows.",
+    title: "Founding Engineer — Marzi by Primus",
+    meta: "Bengaluru, India · Feb 2026 - Present",
+    bullets: [
+      "Built and launched a Go/PostgreSQL wallet ledger with immutable double-entry accounting and grant-backed reserve, capture and release operations for event bookings.",
+      "Implemented per-wallet row locking, scoped idempotency and request fingerprint checks to prevent overspending and duplicate debits during concurrent requests and retries.",
+      "Engineered event-booking and payment flows with seat reservations, Razorpay capture and amount verification, and durable settlement and reconciliation between Lambda services and the ledger.",
+      "Generated and distributed 4M+ signed coupon codes; supported four partner campaigns reaching 50K+ users across Google Pay, PharmEasy, Pronto and Tata 1mg.",
+      "Designed serverless services using AWS Lambda and DynamoDB, reducing infrastructure costs by over INR 30,000; migrated legacy Python services to Node.js.",
+      "Secured ledger APIs with HMAC signatures, scoped service identities, nonce replay protection and rate limiting; implemented versioned migrations and isolated PostgreSQL integration tests.",
+      "Built a three-person founding engineering team, owning technical hiring, engineering standards and backend delivery.",
+    ],
   },
   {
     dot: "var(--c-projects)",
     title: "Founder and Engineer — Coacheasy",
-    meta: "India · 11/2025 - 01/2026",
-    body: "Explored and built an MVP for a fitness coaching SaaS to support nutrition, workouts, scheduling, and engagement. Developed core features using Elixir and Phoenix with a strong emphasis on product execution and delivery.",
+    meta: "India · Nov 2025 - Jan 2026",
+    bullets: [
+      "Built a fitness-coaching SaaS MVP in Elixir and Phoenix, delivering core features for client nutrition, workouts, scheduling and engagement.",
+    ],
   },
   {
     dot: "var(--c-now)",
-    title: "Software Developer Engineer — Vision11 (Haanaa)",
-    meta: "Gurugram, India · 06/2025 - 10/2025",
-    body: "Migrated 3.5M+ users from PostgreSQL to CleverTap, refactored 2 of 9 microservices in a distributed system, and built a fault-tolerant KYC flow using the Easebuzz API. Reduced landing page bundle size by 50% and handled frontend deployments on Vercel.",
+    title: "Software Development Engineer — Vision11 (Haanaa)",
+    meta: "Gurugram, India · Jun 2025 - Oct 2025",
+    bullets: [
+      "Migrated 3.5M+ user profiles from PostgreSQL to CleverTap for customer engagement and analytics.",
+      "Refactored two of nine microservices to improve maintainability; built a fault-tolerant production KYC integration with the Easebuzz API.",
+    ],
   },
   {
     dot: "var(--c-photos)",
-    title: "Software Developer Engineer — Burpy AI",
-    meta: "Remote · 12/2024 - 05/2025",
-    body: "Wrote Go and Python scripts for DB optimization and schema stability, built 8 real-time analytics trackers for smartwatches and access devices, and delivered an Astro + GraphQL website with 95%+ Lighthouse scores. Added 60+ reusable components and built 2 GraphQL services using Python, GraphQL, and MongoDB.",
+    title: "Software Development Engineer — Burpy AI",
+    meta: "Remote · Dec 2024 - May 2025",
+    bullets: [
+      "Developed two Python/GraphQL services backed by MongoDB; wrote Go and Python scripts for database query optimization and schema maintenance.",
+      "Implemented eight user-activity trackers for smartwatch and access-device analytics.",
+    ],
   },
   {
     dot: "var(--c-blog)",
     title: "Freelance Developer — STAN",
-    meta: "Remote · 12/2024 - 04/2025",
-    body: "Built a scalable React and Next.js eCommerce frontend integrating multiple REST APIs. Packaged the web app into a React Native WebView for iOS and Android release.",
+    meta: "Remote · Dec 2024 - Apr 2025",
+    bullets: [
+      "Integrated REST APIs into a React/Next.js commerce application and packaged it for iOS and Android using React Native WebView.",
+    ],
   },
 ];
 
-export const skills: string[] = [
-  "TypeScript",
-  "JavaScript",
-  "Python",
-  "Elixir",
-  "Golang",
-  "HTML/CSS",
-  "Node.js",
-  "Express",
-  "Django",
-  "Phoenix",
-  "GraphQL",
-  "Redis",
-  "Gin",
-  "Fiber",
-  "React",
-  "Next.js",
-  "Astro",
-  "Redux Toolkit",
-  "Tailwind",
-  "MUI",
-  "PostgreSQL",
-  "MongoDB",
-  "AWS",
-  "Docker",
-  "GitHub Actions",
-  "Linux",
-  "Postman",
-  "Supabase",
-  "Firebase",
+export type SkillGroup = { label: string; items: string[] };
+
+export const skillGroups: SkillGroup[] = [
+  {
+    label: "Languages",
+    items: ["Go", "TypeScript", "JavaScript", "Python", "Elixir", "SQL"],
+  },
+  {
+    label: "Backend",
+    items: ["Node.js", "Express", "Gin", "GORM", "Phoenix", "REST APIs", "GraphQL"],
+  },
+  { label: "Data", items: ["PostgreSQL", "DynamoDB", "MongoDB", "Redis"] },
+  {
+    label: "Infrastructure",
+    items: [
+      "AWS (Lambda, EC2, S3, API Gateway, CloudWatch)",
+      "Docker",
+      "Jenkins",
+      "GitHub Actions",
+      "Linux",
+    ],
+  },
 ];
 
 export const education = {
@@ -120,5 +130,4 @@ export const education = {
   body: "Mohali, Punjab · CGPA 7.48 (2022-2025).",
 };
 
-export const resumePdf =
-  "https://drive.google.com/file/d/1ut-nKIwEi1VUsH_sLE1zBE2UvUc4twhb/view?usp=sharing";
+export const resumePdf = "/resume.pdf";

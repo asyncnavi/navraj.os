@@ -2,7 +2,7 @@ import {
   education,
   experience,
   profile,
-  skills,
+  skillGroups,
 } from "@/content/portfolio";
 import s from "./apps.module.css";
 
@@ -24,7 +24,11 @@ export default function ResumeApp() {
             <div>
               <div className={s.expTitle}>{e.title}</div>
               <div className={s.expMeta}>{e.meta}</div>
-              <div className={s.expBody}>{e.body}</div>
+              <ul className={s.expBullets}>
+                {e.bullets.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
@@ -33,13 +37,18 @@ export default function ResumeApp() {
       <div className={s.twoCol}>
         <div>
           <div className={s.sectionLabel}>Skills</div>
-          <div className={s.skillRow}>
-            {skills.map((sk) => (
-              <span key={sk} className={s.skill}>
-                {sk}
-              </span>
-            ))}
-          </div>
+          {skillGroups.map((g) => (
+            <div key={g.label}>
+              <div className={s.skillGroupLabel}>{g.label}</div>
+              <div className={s.skillRow}>
+                {g.items.map((sk) => (
+                  <span key={sk} className={s.skill}>
+                    {sk}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
         <div>
           <div className={s.sectionLabel}>Education</div>
